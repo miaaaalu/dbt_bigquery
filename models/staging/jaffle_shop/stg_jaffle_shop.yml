@@ -10,10 +10,17 @@ models:
 
   - name: stg_jaffle_shop_orders
     columns:
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_jaffle_shop_customers')
+              field: customer_id
+
       - name: order_id
         tests:
           - unique
           - not_null
+
       - name: status
         tests:
           - accepted_values:
