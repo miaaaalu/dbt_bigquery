@@ -1,16 +1,13 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: stripe
     database: dbt-tutorial
-    schema: jaffle_shop
+    schema: stripe
     freshness:
       warn_after: { count: 24, period: hour }
       error_after: { count: 24, period: hour }
-    loaded_at_field: _etl_loaded_at
+    loaded_at_field: _batched_at
 
     tables:
-      - name: customers
-        freshness: null 
-      - name: orders
- 
+      - name: payment
