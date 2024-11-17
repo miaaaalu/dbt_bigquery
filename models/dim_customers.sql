@@ -1,12 +1,22 @@
-with customers as (
+{{
+    config(
+        materialized = 'view'
+    )
+}}
 
-    select * from {{ ref('stg_customers') }}
+with 
+
+customers as (
+
+    select * 
+    from {{ ref('stg_jaffle_shop_customers') }}
 
 ),
 
 orders as (
 
-    select * from {{ ref('stg_orders') }}
+    select * 
+    from {{ ref('stg_jaffle_shop_orders') }}
 
 ),
 
@@ -41,4 +51,5 @@ final as (
 
 )
 
-select * from final
+select * 
+from final
