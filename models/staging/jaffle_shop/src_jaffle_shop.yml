@@ -13,6 +13,10 @@ sources:
     tables:
       - name: customers
         description: raw customers data
+        tests:
+          - dbt_utils.equal_rowcount:
+              compare_model: ref('orders')
+
         columns:
           - name: id
             description: primary key for customers data 
